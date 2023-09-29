@@ -1,0 +1,11 @@
+.card{
+    background-color: lightgray;
+    padding: 10px;
+    margin: 5px 0 ;
+    color: brown;
+    width: 40vw;
+     
+}
+.avatar{
+    width: 100px;
+}
