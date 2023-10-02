@@ -1,6 +1,35 @@
 <div class="card">
     <img  class="avatar" src="../../assets/images/img1.png">
-    <p>Name: Tetiana</p>
-    <p>Surname: Shrol</p>
-    <p>Address: Rivne</p>
+    <p>Name: {{name}}</p>
+    <p>Surname: {{surname}}</p>
+    <p>Address: {{address}}</p>
 </div>
+<!-- pipes :  number, currency, percent, date, uppercase, lowercase, slice  -->
+<!--  template: {{value | pipe }} -->
+<div class="card">
+    <img  class="avatar" src="../../assets/images/img1.png">
+    <p>Name: {{user1.name | uppercase}}</p>
+    <p>Surname: {{user1.surname | uppercase}}</p>
+    <p>Address: {{user1.address | lowercase}}</p>
+    <p>Address: {{user1.birthday| date:"longDate"}}</p>
+    <p>Address: {{user1.premium|currency:'UAH':'грн.'}}</p>
+    <p>Address: {{user1.premium|currency:'UAH':'symbol-narrow'}}</p>
+    
+</div>
+
+<div class="card">
+    <img  class="avatar" src="../../assets/images/img1.png">
+    <p>Name: {{user2.name | uppercase}}</p>
+    <p>Surname: {{user2.surname | uppercase}}</p>
+    <p>Address: {{user2.address | lowercase}}</p>
+    <p>Address: {{user2.birthday| date:"longDate"}}</p>
+    <p>Address: {{user2.premium|currency:'UAH':'грн.'}}</p>
+    <p>Address: {{user2.premium|currency:'UAH':'symbol-narrow'}}</p>
+    
+</div>
+
+
+<h3>List users from array</h3>
+<ol>
+    <li *ngFor="let u of users">{{u.name}}  {{u.surname}}</li>
+ </ol>
