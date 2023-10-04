@@ -1,1 +1,40 @@
-<p>movies works!</p>
+<!-- Directiva structure  *ngIf -->
+<!-- <div *ngIf="condition">Content to render when condition is true.</div> -->
+<!-- <ng-template [ngIf]="condition"><div>Content to render when condition is
+true.</div></ng-template> -->
+<p *ngIf="movies.length==0">No movies in the cinema yet!</p>
+<p *ngIf="movies.length!=0">{{movies.length}} {{movies.length==1 ? "movie" : "movies"}}</p>
+<!-- *ngIf="condition";else alseBlock  -->
+<p *ngIf="movies.length==0; else countBlock">No movies in the cinema yet!</p>
+<ng-template #countBlock>
+    <p>We have {{movies.length}} {{movies.length==1 ? "movie" : "movies"}} in the cinema collection!</p>
+</ng-template>
+
+
+
+<div class="card">
+    <table>
+        <tr>
+            <th [ngClass]="{'headtable':true}">Title</th>
+            <th [ngStyle]="{'font-style': 'italic','text-transform': 'uppercase'}">Description</th>
+            <th>Year</th>
+            <th>Duration</th>
+            <th>IsCurrent</th>
+            <th>Genres</th>
+        </tr>
+        <!-- <tr *ngFor="let m of movies" [ngClass]="{'currentMovie': m.isCurrent}"> -->
+        <tr *ngFor="let m of movies"
+         [class.currentMovie]="m.isCurrent==true"
+         [class.oldestMovie]="m.year<2003"
+         (click)="changeCurrentStatus(m)"
+         (dblclick)="deleteMovie(m)"
+         >
+            <td>{{ m.title| uppercase }}</td>
+            <td>{{ m.description }}</td>
+            <td>{{ m.year }}</td>
+            <td>{{ m.duration["hours"]}}:{{ m.duration.minutes}}</td>
+            <td>{{ m.isCurrent }}</td>
+            <td>{{ m.genres?.join("/") }}</td>
+        </tr>
+    </table>
+</div>
