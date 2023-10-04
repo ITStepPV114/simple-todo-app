@@ -7,7 +7,13 @@ import { IMovie } from './movie';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent {
-  
+  newMovie:IMovie={
+    title: "",
+    year: 0,
+    duration: { hours: 0, minutes: 0 },
+    isCurrent: true,
+  };
+
   movies: IMovie[] = [
     {
       title: "Dune",
@@ -44,5 +50,11 @@ export class MoviesComponent {
       this.movies.splice(index,1);
     }
 
+    sortByYear():void{
+      this.movies.sort((m1,m2)=>m1.year-m2.year);
+    }
 
+    addMovie():void{
+      this.movies.push(this.newMovie);
+    }
 }

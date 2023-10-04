@@ -1,18 +1,46 @@
+<!-- ([ngModel])="property" two-way binding -->
+<h3>Create New Movie</h3>
+
+<div class="createForm">
+    <div>
+        <span>Title:</span>
+        <input [(ngModel)]="newMovie.title" type="text">
+    </div>
+    <div>
+        <span>Year:</span>
+        <input [(ngModel)]="newMovie.year" type="number">
+
+    </div>
+    <div>
+        <span>Current:</span>
+        <input [(ngModel)]="newMovie.isCurrent" type="checkbox">
+    </div>
+    <div>
+        <span>Genres:</span>
+        <select [(ngModel)]="newMovie.genres" multiple>
+            <option>Action</option>
+            <option>Drama</option>
+            <option>History</option>
+            <option>Comedy</option>
+        </select>
+    </div>
+    
+    <button (click)="addMovie()">Add</button>
+</div>
 <!-- Directiva structure  *ngIf -->
 <!-- <div *ngIf="condition">Content to render when condition is true.</div> -->
 <!-- <ng-template [ngIf]="condition"><div>Content to render when condition is
 true.</div></ng-template> -->
-<p *ngIf="movies.length==0">No movies in the cinema yet!</p>
-<p *ngIf="movies.length!=0">{{movies.length}} {{movies.length==1 ? "movie" : "movies"}}</p>
+<!-- <p *ngIf="movies.length==0">No movies in the cinema yet!</p>
+<p *ngIf="movies.length!=0">{{movies.length}} {{movies.length==1 ? "movie" : "movies"}}</p> -->
 <!-- *ngIf="condition";else alseBlock  -->
 <p *ngIf="movies.length==0; else countBlock">No movies in the cinema yet!</p>
 <ng-template #countBlock>
     <p>We have {{movies.length}} {{movies.length==1 ? "movie" : "movies"}} in the cinema collection!</p>
 </ng-template>
 
-
-
 <div class="card">
+    <button (click)="sortByYear()">Sort by Year</button>
     <table>
         <tr>
             <th [ngClass]="{'headtable':true}">Title</th>
