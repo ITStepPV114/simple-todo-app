@@ -6,5 +6,5 @@ export interface IMovie{
     year:number;
     duration:Time;
     isCurrent:boolean;
-    genres:string[];
+    genres?:string[];
 }
