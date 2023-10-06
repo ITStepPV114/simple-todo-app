@@ -5,16 +5,27 @@ import { AppComponent } from './app/app.component';
 import { UserCardComponent } from './user-card/user-card.component';
 import { MoviesComponent } from './movies/movies.component';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from './header/header.component';
+import { MaterialModule } from './material/material.module';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     UserCardComponent,
-    MoviesComponent
+    MoviesComponent,
+    HeaderComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IMovie } from '../movies/movie';
 import { MOVIES } from '../movies/movies-mock-data';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
