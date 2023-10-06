@@ -1,5 +1,11 @@
 <h1>Cinema in Angular</h1>
-<app-movies></app-movies>
+<hr>
+<h2>All Movies in  our CINEMA </h2>
+<app-movies [movies]="allMovies" (onChangeCurrentStatus)="changeCurrentStatus($event)"></app-movies>
+<hr>
+<h2>IsCurrent Movies in  our CINEMA </h2>
+<app-movies [movies]="isCurrentMovies" (onChangeCurrentStatus)="changeCurrentStatus($event)"></app-movies>
+
 <!-- <h2>Admin User</h2>
 <app-user-card></app-user-card>
 <h2>Manager User</h2>
