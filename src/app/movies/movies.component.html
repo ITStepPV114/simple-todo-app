@@ -16,6 +16,10 @@
         <input [(ngModel)]="newMovie.isCurrent" type="checkbox">
     </div>
     <div>
+        <span>Duration:</span>
+        <input [(ngModel)]="timeDuration" type="time">
+    </div>
+    <div>
         <span>Genres:</span>
         <select [(ngModel)]="newMovie.genres" multiple>
             <option>Action</option>

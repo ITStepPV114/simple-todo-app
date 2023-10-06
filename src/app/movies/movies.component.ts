@@ -7,12 +7,15 @@ import { IMovie } from './movie';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent {
+  
   newMovie:IMovie={
     title: "",
     year: 0,
     duration: { hours: 0, minutes: 0 },
     isCurrent: true,
   };
+  //field for read timeDuration
+  timeDuration="";
 
   movies: IMovie[] = [
     {
@@ -55,6 +58,12 @@ export class MoviesComponent {
     }
 
     addMovie():void{
-      this.movies.push(this.newMovie);
+      console.log(this.timeDuration);
+      let time=this.timeDuration.split(":"); // [1, 34]
+      this.newMovie.duration.hours=+time[0];
+      this.newMovie.duration.minutes=parseInt(time[1]);
+
+      let movieForAdd={...this.newMovie} //create new object
+      this.movies.push(movieForAdd);
     }
 }
