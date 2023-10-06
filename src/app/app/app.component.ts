@@ -12,12 +12,15 @@ export class AppComponent {
   allMovies:IMovie[];
   isCurrentMovies:IMovie[];
 
+  changeMovie?:IMovie;
+
   constructor(){
     this.allMovies=MOVIES;
     this.isCurrentMovies=MOVIES.filter((x)=>x.isCurrent==true);
   }
 
   changeCurrentStatus(movie: IMovie): void {
+    this.changeMovie={...movie};
     this.isCurrentMovies=this.allMovies.filter((x)=>x.isCurrent==true).map(item=>({...item}));
   }
 }

@@ -5,7 +5,7 @@
 <hr>
 <h2>IsCurrent Movies in  our CINEMA </h2>
 <app-movies [movies]="isCurrentMovies" (onChangeCurrentStatus)="changeCurrentStatus($event)"></app-movies>
-
+<div>{{changeMovie?.title??"Not Change"}}  {{changeMovie?.year}} {{changeMovie?.isCurrent}}</div>
 <!-- <h2>Admin User</h2>
 <app-user-card></app-user-card>
 <h2>Manager User</h2>
